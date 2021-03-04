@@ -14,7 +14,7 @@ module.exports = {
 
     // criação
     async store(req, res){
-        const schema = Yup.object().shape({
+        /*const schema = Yup.object().shape({
             name: Yup.string().require(),
             email: Yup.string().require(),
             cpf: Yup.string().require(),
@@ -26,7 +26,7 @@ module.exports = {
 
         if(!(await schema.isValid(req.body))){
             return res.status(400).json({error: "Validation fails"});
-        };
+        };*/
 
         const member = await Member.create(req.body);
 
@@ -42,7 +42,7 @@ module.exports = {
 
     // atualizar
     async update(req, res){
-        const schema = Yup.object().shape({
+        /*const schema = Yup.object().shape({
             name: Yup.string(),
             email: Yup.string(),
             cpf: Yup.string(),
@@ -54,7 +54,7 @@ module.exports = {
 
         if(!(await schema.isValid(req.body))){
             return res.status(400).json({error: "Validation fails"});
-        };
+        };*/
 
         const member = await Member.findByIdAndUpdate(req.params.id, req.body, {
             new: true
