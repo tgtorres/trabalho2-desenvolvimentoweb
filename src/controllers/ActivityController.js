@@ -14,7 +14,7 @@ module.exports = {
 
     // criação
     async store(req, res){
-        const schema = Yup.object().shape({
+        /*const schema = Yup.object().shape({
             code: Yup.number().require(),
             work_shift: Yup.string().require(),
             day: Yup.string().require(),
@@ -23,7 +23,7 @@ module.exports = {
 
         if(!(await schema.isValid(req.body))){
             return res.status(400).json({error: "Validation fails"});
-        };
+        };*/
 
         const activity = await Activity.create(req.body);
 
@@ -39,7 +39,7 @@ module.exports = {
 
     // atualizar
     async update(req, res){
-        const schema = Yup.object().shape({
+        /*const schema = Yup.object().shape({
             code: Yup.number(),
             work_shift: Yup.string(),
             day: Yup.string(),
@@ -48,7 +48,7 @@ module.exports = {
 
         if(!(await schema.isValid(req.body))){
             return res.status(400).json({error: "Validation fails"});
-        };
+        };*/
         
         const activity = await Activity.findByIdAndUpdate(req.params.id, req.body, {
             new: true
